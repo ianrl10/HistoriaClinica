@@ -1,3 +1,10 @@
+<?php
+session_start();
+if(isset($_SESSION['S_IDUSUARIO'])){
+	header('Location: ../vista/index.php');
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

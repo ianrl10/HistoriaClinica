@@ -1,10 +1,20 @@
+<!-- index principal de la página  -->
+
+<?php
+session_start();
+if(!isset($_SESSION['S_IDUSUARIO'])){
+	header('Location: ../login/index.php');
+}
+?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Historias Clínicas</title>
-  <!-- Tell the browser to be responsive to screen width -->
+<!-- apartado enfocado al apartado resposive de la página -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
   <link rel="stylesheet" href="../Plantilla/bower_components/bootstrap/dist/css/bootstrap.min.css">
@@ -58,6 +68,7 @@
 
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
+        
         </ul>
       </div>
     </nav>
@@ -72,10 +83,30 @@
           <img src="../Plantilla/dist/img/perfil usuario.jpg" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>Usuario</p>
+          <p><?php echo $_SESSION['S_IDUSUARIO']; ?></p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
+
+      
+      <!-- User Account: style can be found in dropdown.less -->
+      <li class="dropdown user user-menu">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <img src="../Plantilla/dist/img/logout.png" class="user-image" alt="User Image" width="50" height="50" >
+            </a>
+            <ul class="dropdown-menu">
+                <!-- /.row -->
+              </li>
+              <!-- Menu Footer-->
+              <li class="user-footer">
+                <div class="pull-right">
+                  <a href="../controlador/administrador/cerrar_session.php" class="btn btn-default btn-flat">Cerrar Sesión</a>
+                </div>
+              </li>
+            </ul>
+          </li>
+
+          
       
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">USUARIOS DEL SISTEMA</li>
