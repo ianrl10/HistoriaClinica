@@ -37,6 +37,8 @@ if(!isset($_SESSION['S_IDUSUARIO'])){
   <link rel="stylesheet" href="../Plantilla/bower_components/bootstrap-daterangepicker/daterangepicker.css">
   <!-- bootstrap wysihtml5 - text editor -->
   <link rel="stylesheet" href="../Plantilla/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+  <link rel="stylesheet" href="../Plantilla/plugins/DataTables/datatables.min.css">
+  <link rel="stylesheet" href="../Plantilla/plugins/select2/select2.min.css">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -92,7 +94,7 @@ if(!isset($_SESSION['S_IDUSUARIO'])){
       <!-- User Account: style can be found in dropdown.less -->
       <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="../Plantilla/dist/img/logout.png" class="user-image" alt="User Image" width="50" height="50" >
+              <img src="../Plantilla/dist/img/logout.png" class="user-image" alt="User Image" width="40" height="40" >
             </a>
             <ul class="dropdown-menu">
                 <!-- /.row -->
@@ -100,7 +102,7 @@ if(!isset($_SESSION['S_IDUSUARIO'])){
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="pull-right">
-                  <a href="../controlador/administrador/cerrar_session.php" class="btn btn-default btn-flat">Cerrar Sesión</a>
+                  <a href="../controlador/administrador/cerrar_session.php" class="btn btn-danger" >Cerrar Sesión</a>
                 </div>
               </li>
             </ul>
@@ -118,13 +120,13 @@ if(!isset($_SESSION['S_IDUSUARIO'])){
             </span>
           </a>
           <a onclick="cargar_contenido('contenido_principal','medico/vista_medico_listar.php')">
-            <i class="fa fa-dashboard"></i> <span>Medico</span>
+            <i class="fa fa-user-md"></i> <span>Medico</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <a onclick="cargar_contenido('contenido_principal','paciente/vista_paciente_listar.php')">
-            <i class="fa fa-dashboard"></i> <span>Paciente</span>
+            <i class="fa fa-wheelchair"></i> <span>Paciente</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
@@ -190,6 +192,34 @@ if(!isset($_SESSION['S_IDUSUARIO'])){
 <script src="../Plantilla/bower_components/jquery-ui/jquery-ui.min.js"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
+  var idioma_espanol ={
+    select:{
+      rows: "%d fila seleccionada" 
+    },
+    "sProcessing":       "Procesando...",
+    "sLengthMeni":       "Mostrar_Menu_registros",
+    "sZeroRecords":      "No se encontraron resultados",
+    "sEmptyTable":       "Ning&uacute;m dato disponible en esta tabla",
+    "sInfo":             "Registros del (_START_al_END_) total de _TOTAL_ registros",
+    "sInfoEmpty":        "Resgistros del (0 al 0) total de 0 registros",
+    "sInfoFiltered":     "(filtrado de un total de _MAX_ registros)",
+    "sInfoPostFix":      "",
+    "sSearch":           "Buscar:",
+    "sUrl":              "",
+    "sInfoThousands":    ",",
+    "sLoadingRecords":   "<b>No se encontraton datos</b>",
+    "oPaginate": {
+        "sFirst":     "Primero",
+        "sLAST":      "Último",
+        "sNext":      "Siguiente",
+        "sPrevious":  "Anterior"
+    },
+    "oAria": {
+        "sSortAscending":   ": Activar para ordenar la columna de manera ascendente",
+        "sSortDescending":  ": Activar para ordenar la columna de manera descendente"
+    }
+  }
+
   function cargar_contenido(contenedor,contenido){
       $("#"+contenedor).load(contenido);
   }
@@ -219,8 +249,9 @@ if(!isset($_SESSION['S_IDUSUARIO'])){
 <script src="../Plantilla/bower_components/fastclick/lib/fastclick.js"></script>
 
 <script src="../Plantilla/dist/js/adminlte.min.js"></script>
-<!-- Dashboard template -->
-<!-- Template -->
+
 <script src="../Plantilla/dist/js/demo.js"></script>
+<script src="../Plantilla/plugins/DataTables/datatables.min.js"></script>
+<script src="../Plantilla/plugins/select2/select2.min.js"></script>
 </body>
 </html>
