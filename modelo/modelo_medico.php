@@ -8,8 +8,8 @@
             $this->conexion->conectar();
         }
 
-        function VerificarPaciente($usuario,$contra){
-            $sql = "call SP_VERIFICAR_PACIENTE('$usuario')";
+        function VerificarUsuario($usuario,$contra){
+            $sql = "call SP_VERIFICAR_USUARIO('$usuario')";
             $arreglo = array();
             if ($consulta = $this->conexion->conexion->query($sql)){
                 while ($consulta_VA = mysqli_fetch_array($consulta)){
@@ -41,11 +41,11 @@
         }
 
         function listar_combo_rol(){
-            $sql = "call SP_SP_LISTAR_COMBO_ROL()";
+            $sql = "call SP_LISTAR_COMBO_ROL()";
             $arreglo = array();
             if ($consulta = $this->conexion->conexion->query($sql)){
                 while ($consulta_VA = mysqli_fetch_array($consulta)){
-                        $arreglo[3] = $consulta_VA;
+                        $arreglo[] = $consulta_VA;
                 }
                  return $arreglo;
                  $this->conexion->cerrar();   
@@ -54,9 +54,9 @@
 
         }
 
-        function Modificar_Datos_Paciente($idusuario,$apellido,$sexo,$cedula,$email,$estado,$ciudad,$direccion,
+        function Modificar_Datos_Paciente($idusuario,$rol,$apellido,$sexo,$cedula,$email,$estado,$ciudad,$direccion,
         $telefono,$receta){
-            $sql = "call SP_MODIFICAR_DATOS_PACIENTE('$idusuario,$apellido','$sexo','$cedula','$email'
+            $sql = "call SP_MODIFICAR_DATOS_PACIENTE('$idusuario','$rol','$apellido','$sexo','$cedula','$email'
             ,'$estado','$ciudad','$direccion','$telefono','$receta')";
             if ($consulta = $this->conexion->conexion->query($sql)){
                 return 1;
@@ -70,9 +70,9 @@
 
 
 
-        function Registrar_Paciente($usuario,$apellido,$contra,$sexo,$cedula,$email,$estado,$ciudad,$direccion,
+        function Registrar_Usuario($usuario,$rol,$apellido,$contra,$sexo,$cedula,$email,$estado,$ciudad,$direccion,
         $telefono,$receta){
-            $sql = "call SP_REGISTRAR_PACIENTE('$usuario','$apellido','$contra','$sexo','$cedula','$email'
+            $sql = "call SP_REGISTRAR_USUARIO('$usuario','$rol','$apellido','$contra','$sexo','$cedula','$email'
             ,'$estado','$ciudad','$direccion','$telefono','$receta')";
             if ($consulta = $this->conexion->conexion->query($sql)){
                 if ($row = mysqli_fetch_array($consulta)) {

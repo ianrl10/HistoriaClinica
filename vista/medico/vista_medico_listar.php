@@ -74,7 +74,7 @@
           </div>
           <div class="col-lg-12">
               <label for="">Rol:</label>
-              <select class="js-example-basic-single" name="state" id="rol" style="width:100%;">
+              <select class="js-example-basic-single" name="state" id="cbm_rol" style="width:100%;">
 
               </select><br><br>
           </div>
@@ -131,7 +131,7 @@
           </div>
         </div>
         <div class="modal-footer">
-          <button class="btn btn-primary" onclick="Registrar_Paciente()">Registar</button>
+          <button class="btn btn-primary" onclick="Registrar_Usuario()">Registar</button>
           <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
         </div>
       </div>
@@ -201,7 +201,7 @@
           </div>
         </div>
         <div class="modal-footer">
-          <button class="btn btn-primary" onclick="Modificar_Paciente()">Editar</button>
+          <button class="btn btn-primary" onclick="Modificar_Usuario()">Editar</button>
           <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
         </div>
       </div>

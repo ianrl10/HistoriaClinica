@@ -12,8 +12,6 @@
         </div>
             <!-- /.box-header -->
             <div class="box-body">
-            <div class="form-group">
-            </div>
             <table id="tabla_usuario" class="display responsive nowrap" style="width:100%">
               <thead>
                 <tr>
@@ -56,9 +54,10 @@
           <!-- /.box -->
 </div>
 
+
 <script>
 $(document).ready(function() {
-    listar_paciente_usuario();
+    listar_paciente();
     $('.js-example-basic-single').select2();
     listar_combo_rol();
     $("#modal_registro").on('shown.bs.modal', function(){

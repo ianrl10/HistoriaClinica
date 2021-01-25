@@ -1,5 +1,5 @@
-// función verificar paciente
-function VerificarPaciente(){
+// función verificar pacientes del MEDICO
+function VerificarMedico(){
 
     var usu = $("#txt_usu").val();
     var con = $("#txt_con").val();
@@ -8,7 +8,7 @@ function VerificarPaciente(){
         return Swal.fire("Mensaje de advertencia" , "Llene los campos vacios", "warning")
     }
     $.ajax({
-        url:'../controlador/medico/verificar_paciente.php',
+        url:'../controlador/administrador/verificar_administrador.php',
         type:'POST',
         data:{
             user:usu,
@@ -186,7 +186,7 @@ function listar_combo_rol(){
 }
 
 
-function Registrar_Paciente(){
+function Registrar_Usuario(){
     var usu = $("#txt_usu").val();
     var rol = $("#cbm_rol").val();
     var ape = $("#txt_ape").val();
@@ -252,8 +252,7 @@ function Registrar_Paciente(){
 
 }
 
-
-function Modificar_Paciente(){
+function Modificar_Usuario(){
     var idusuario = $("#txtidusuario").val();
     var rol = $("#cbm_rol_editar").val();
     var ape = $("#txtape_editar").val();
@@ -306,6 +305,8 @@ function Modificar_Paciente(){
     })
 
 }
+
+
 
 function LimpiarRegistro(){
     $("#txt_usu").val("");
