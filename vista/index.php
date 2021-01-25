@@ -145,41 +145,6 @@ if(!isset($_SESSION['S_IDUSUARIO'])){
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
-
-          <?php
-            }
-          ?>
-          <?php 
-            if($_SESSION['S_ROL']=='2'){
-              
-        
-          ?>
-           <!-- /.contenido por roles -->
-            <a onclick="cargar_contenido('contenido_principal','medico/vista_medico_listar.php')">
-              <i class="fa fa-user-md"></i> <span>Medico</span>
-              <span class="pull-right-container">
-               <i class="fa fa-angle-left pull-right"></i>
-             </span>
-            </a>
-          <?php
-            }
-          ?>
-
-          <?php 
-            if($_SESSION['S_ROL']=='3'){
-              
-        
-          ?>
-           <!-- /.contenido por roles -->
-           <a onclick="cargar_contenido('contenido_principal','paciente/vista_paciente_listar.php')">
-            <i class="fa fa-wheelchair"></i> <span>Paciente</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <?php
-            }
-          ?>
         </li>
       </ul>
     </section>
