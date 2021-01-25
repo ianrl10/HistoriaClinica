@@ -54,6 +54,35 @@
 
         }
 
+        function Modificar_Datos_Usuario($idusuario,$rol,$apellido,$sexo,$cedula,$email,$estado,$ciudad,$direccion,
+        $telefono,$receta){
+            $sql = "call SP_MODIFICAR_DATOS_USUARIO('$idusuario','$rol','$apellido','$sexo','$cedula','$email'
+            ,'$estado','$ciudad','$direccion','$telefono','$receta')";
+            if ($consulta = $this->conexion->conexion->query($sql)){
+                return 1;
+          
+            }else{
+                return 0; 
+             
+            }
+
+        }
+
+
+
+        function Registrar_Usuario($usuario,$rol,$apellido,$contra,$sexo,$cedula,$email,$estado,$ciudad,$direccion,
+        $telefono,$receta){
+            $sql = "call SP_REGISTRAR_USUARIO('$usuario','$rol','$apellido','$contra','$sexo','$cedula','$email'
+            ,'$estado','$ciudad','$direccion','$telefono','$receta')";
+            if ($consulta = $this->conexion->conexion->query($sql)){
+                if ($row = mysqli_fetch_array($consulta)) {
+                        return $id= trim($row[0]);
+                }
+                $this->conexion->cerrar();   
+             
+            }
+
+        }
 
     }
 

@@ -1,4 +1,4 @@
-<!-- index principal de la página  -->
+
 
 <?php
 session_start();
@@ -39,6 +39,9 @@ if(!isset($_SESSION['S_IDUSUARIO'])){
   <link rel="stylesheet" href="../Plantilla/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
   <link rel="stylesheet" href="../Plantilla/plugins/DataTables/datatables.min.css">
   <link rel="stylesheet" href="../Plantilla/plugins/select2/select2.min.css">
+  <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../assets/fonts/flat-icon/flaticon.css">
+  <link rel="stylesheet" href="../css/style.css">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -50,12 +53,17 @@ if(!isset($_SESSION['S_IDUSUARIO'])){
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
+<style >
+.swal2-popup{
+  font-size:1.6rem !important;
+}
+</style>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
 
   <header class="main-header">
     <!-- Logo -->
-    <a href="index2.html" class="logo">
+    <a href="index.php" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>H</b>C</span>
       <!-- logo for regular state and mobile devices -->
@@ -86,6 +94,7 @@ if(!isset($_SESSION['S_IDUSUARIO'])){
         </div>
         <div class="pull-left info">
           <p><?php echo $_SESSION['S_IDUSUARIO']; ?></p>
+          <p><?php echo $_SESSION['S_USER']; ?></p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
@@ -102,7 +111,7 @@ if(!isset($_SESSION['S_IDUSUARIO'])){
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="pull-right">
-                  <a href="../controlador/administrador/cerrar_session.php" class="btn btn-danger" >Cerrar Sesión</a>
+                  <a href="../controlador/administrador/cerrar_session.php" class="btn btn-danger"><b>Cerrar Sesión</b></a>
                 </div>
               </li>
             </ul>
@@ -113,6 +122,11 @@ if(!isset($_SESSION['S_IDUSUARIO'])){
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">USUARIOS DEL SISTEMA</li>
         <li class="active treeview">
+        <?php 
+            if($_SESSION['S_ROL']=='1'){
+        
+        ?>
+
           <a onclick="cargar_contenido('contenido_principal','administrador/vista_administrador_listar.php')">
             <i class="fa fa-users"></i> <span>Administrador</span>
             <span class="pull-right-container">
@@ -131,6 +145,41 @@ if(!isset($_SESSION['S_IDUSUARIO'])){
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
+
+          <?php
+            }
+          ?>
+          <?php 
+            if($_SESSION['S_ROL']=='2'){
+              
+        
+          ?>
+           <!-- /.contenido por roles -->
+            <a onclick="cargar_contenido('contenido_principal','medico/vista_medico_listar.php')">
+              <i class="fa fa-user-md"></i> <span>Medico</span>
+              <span class="pull-right-container">
+               <i class="fa fa-angle-left pull-right"></i>
+             </span>
+            </a>
+          <?php
+            }
+          ?>
+
+          <?php 
+            if($_SESSION['S_ROL']=='3'){
+              
+        
+          ?>
+           <!-- /.contenido por roles -->
+           <a onclick="cargar_contenido('contenido_principal','paciente/vista_paciente_listar.php')">
+            <i class="fa fa-wheelchair"></i> <span>Paciente</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <?php
+            }
+          ?>
         </li>
       </ul>
     </section>
@@ -159,9 +208,84 @@ if(!isset($_SESSION['S_IDUSUARIO'])){
             <div class="box-body">
               CONTENIDO PRINCIPAL
             </div>
-            <!-- /.box-body -->
+            <!-- /.box-body --> 
           </div>
           <!-- /.box -->
+          <body>
+  <div id="content-wrapper">
+    <section class="testimonial">
+      <div class="container">
+          <div class="text-center">
+            <h2 class="page-section__title">CENTRO MÉDICO</h2>
+            <div class="testimonial__title-style">
+              <span class="first-line"></span>
+              <span class="second-line"></span>
+            </div>
+            <p class="page-section__subtitle">TU SALUD ES MUY IMPORTANTE, TE AYUDAMOS A CUIDARTE</p>
+          </div>
+    </section>
+
+    <section class="team team--bg">
+      <div class="container">
+          <div class="row gutters-80">
+            <div class="col-md-6">
+              <div class="thumbnail team__single">
+                <div class="bio text-center">
+                  <img src="../assets/images/1.jpg" alt="">
+                  <h2>Dr. Francisco Arias</h2><br>
+                  <p>Médico general</p>
+                </div>
+                <div class="caption">
+                  <p> Conocimientos y destrezas necesarias para resolver la mayoría de los padecimientos en niños, jovenes y adultos.</p>
+                  <div class="social-icons">
+                    <li><a href="#"><i class="flaticon-facebook-letter-logo"></i></a></li>
+                    <li><a href="#"><i class="flaticon-twitter-logo-silhouette"></i></a></li>
+                    <li><a href="#"><i class="flaticon-google-plus"></i></a></li>
+                    <li><a href="#"><i class="flaticon-pinterest-logo"></i></a></li>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="thumbnail team__single">
+                <div class="bio text-center">
+                  <img src="../assets/images/2.jpg" alt="">
+                  <h2>Dra. Diana Lozada</h2>
+                  <p>Médico general/Pediatra</p><br>
+                </div>
+                <div class="caption">
+                  <p>Especialista en niños, enfocada al área de pediatria. Formación especial para prevenir, diagnosticar y tratar enfermedades o lesiones en infantes.</p>
+                  <div class="social-icons">
+                    <li><a href="#"><i class="flaticon-facebook-letter-logo"></i></a></li>
+                    <li><a href="#"><i class="flaticon-twitter-logo-silhouette"></i></a></li>
+                    <li><a href="#"><i class="flaticon-google-plus"></i></a></li>
+                    <li><a href="#"><i class="flaticon-pinterest-logo"></i></a></li>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>  
+  </div>
+
+
+  <script>
+    $(document).ready(function() {
+      
+      $('button').click( function(e) {
+        $('.collapse').collapse('hide');
+      });
+
+
+      
+    });
+  </script>
+</body>  
+            
+          
         </div>
     </div>
   </div>
@@ -253,5 +377,6 @@ if(!isset($_SESSION['S_IDUSUARIO'])){
 <script src="../Plantilla/dist/js/demo.js"></script>
 <script src="../Plantilla/plugins/DataTables/datatables.min.js"></script>
 <script src="../Plantilla/plugins/select2/select2.min.js"></script>
+<script src="../Plantilla/plugins/sweetalert2/sweetalert2.js"></script>
 </body>
 </html>

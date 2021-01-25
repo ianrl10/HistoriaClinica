@@ -31,6 +31,7 @@
                   <th>Ciudad</th>
                   <th>Dirección</th>
                   <th>Teléfono</th>
+                  <th>Receta</th>
                   <th>Acci&oacute;n</th>
                 </tr>
               </thead>
@@ -47,6 +48,7 @@
                   <th>Ciudad</th>
                   <th>Dirección</th>
                   <th>Teléfono</th>
+                  <th>Receta</th>
                   <th>Acci&oacute;n</th>
                 </tr>
               </tfoot>
@@ -71,6 +73,12 @@
               <input type="text" class="form-control" id="txt_usu" placeholder="Ingrese usuario"><br>
           </div>
           <div class="col-lg-12">
+              <label for="">Rol:</label>
+              <select class="js-example-basic-single" name="state" id="cbm_rol" style="width:100%;">
+
+              </select><br><br>
+          </div>
+          <div class="col-lg-12">
               <label for="">Apellido:</label>
               <input type="text" class="form-control" id="txt_ape" placeholder="Ingrese apellido"><br>
           </div>
@@ -81,7 +89,7 @@
           
           <div class="col-lg-12">
               <label for="">Repita la contrase&ntilde;a:</label>
-              <input type="text" class="form-control" id="txt_con2" placeholder="Repita la contrase&ntilde;a"><br>
+              <input type="password" class="form-control" id="txt_con2" placeholder="Repita la contrase&ntilde;a"><br>
           </div>
           <div class="col-lg-12">
               <label for="">Sexo:</label>
@@ -118,19 +126,88 @@
               <input type="text" class="form-control" id="txt_telf" placeholder="Ingrese su número de telefono o celular"><br>
           </div>
           <div class="col-lg-12">
-              <label for="">Rol:</label>
-              <select class="js-example-basic-single" name="state" id="cbm_rol" style="width:100%;">
-
-              </select><br><br>
+              <label for="">Receta:</label>
+              <input type="text" class="form-control" id="txt_receta" placeholder="Ingrese la receta respectiva"><br>
           </div>
         </div>
         <div class="modal-footer">
-          <button class="btn btn-primary">Registar</button>
+          <button class="btn btn-primary" onclick="Registrar_Usuario()">Registar</button>
           <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
         </div>
       </div>
     </div>
   </div>
+
+<div class="modal fade" id="modal_editar" role="dialog">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Editar datos del usuario</h4>
+        </div>
+        <div class="modal-body">
+          <div class="col-lg-12">
+            <input type="text" id="txtidusuario" hidden>
+              <label for="">Usuario:</label>
+              <input type="text" class="form-control" id="txtusu_editar" placeholder="Ingrese usuario" disabled><br>
+          </div>
+          <div class="col-lg-12">
+              <label for="">Rol:</label>
+              <select class="js-example-basic-single" name="state" id="cbm_rol_editar" style="width:100%;">
+              </select><br><br>
+          </div>
+          <div class="col-lg-12">
+              <label for="">Apellido:</label>
+              <input type="text" class="form-control" id="txtape_editar" placeholder="Ingrese apellido"><br>
+          </div>
+          
+          <div class="col-lg-12">
+              <label for="">Sexo:</label>
+              <select class="js-example-basic-single" name="state" id="cbm_sexo_editar" style="width:100%;">
+                <option value="M">MASCULINO</option>
+                <option value="F">FEMENINO</option>
+              </select><br><br>
+          </div>
+          <div class="col-lg-12">
+              <label for="">Cédula:</label>
+              <input type="text" class="form-control" id="txtced_editar" placeholder="Ingrese su cédula"><br>
+          </div>
+          <div class="col-lg-12">
+              <label for="">Email:</label>
+              <input type="text" class="form-control" id="txtmail_editar" placeholder="Ingrese su correo electrónico"><br>
+          </div>
+          <div class="col-lg-12">
+              <label for="">Estado civil:</label>
+              <select class="js-example-basic-single" name="state" id="cbm_estado_editar" style="width:100%;">
+                <option value="C">CASADO</option>
+                <option value="S">SOLTERO</option>
+              </select><br><br>
+          </div>
+          <div class="col-lg-12">
+              <label for="">Ciudad:</label>
+              <input type="text" class="form-control" id="txtciu_editar" placeholder="Ingrese su Ciudad"><br>
+          </div>
+          <div class="col-lg-12">
+              <label for="">Dirección:</label>
+              <input type="text" class="form-control" id="txtdir_editar" placeholder="Ingrese su dirección"><br>
+          </div>
+          <div class="col-lg-12">
+              <label for="">Telefono:</label>
+              <input type="text" class="form-control" id="txttelf_editar" placeholder="Ingrese su número de telefono o celular"><br>
+          </div>
+          <div class="col-lg-12">
+              <label for="">Receta:</label>
+              <input type="text" class="form-control" id="txtreceta_editar" placeholder="Ingrese la receta respectiva"><br>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-primary" onclick="Modificar_Usuario()">Editar</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
 <script>
 $(document).ready(function() {
     listar_usuario();
