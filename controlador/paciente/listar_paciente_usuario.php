@@ -1,8 +1,8 @@
 
 <?php
     require '../../modelo/modelo_paciente.php';
-    $MA = new Modelo_Paciente();
-    $consulta = $MA-> listar_paciente_usuario();
+    $MM = new Modelo_Paciente();
+    $consulta = $MM-> listar_paciente();
     if($consulta){
         echo json_encode($consulta);
     }else{
