@@ -1,5 +1,5 @@
-// función verificar paciente
-function VerificarPacienteUsuario(){
+// función verificar pacientes 
+function VerificarMedico(){
 
     var usu = $("#txt_usu").val();
     var con = $("#txt_con").val();
@@ -8,7 +8,7 @@ function VerificarPacienteUsuario(){
         return Swal.fire("Mensaje de advertencia" , "Llene los campos vacios", "warning")
     }
     $.ajax({
-        url:'../controlador/paciente/verificar_paciente_usuario.php',
+        url:'../controlador/administrador/verificar_administrador.php',
         type:'POST',
         data:{
             user:usu,
@@ -67,7 +67,7 @@ function VerificarPacienteUsuario(){
     })
 }
 var table;
-function listar_paciente_usuario(){
+function listar_paciente(){
     table = $('#tabla_usuario').DataTable({
        "ordering":false,
        "paging": false,
@@ -78,7 +78,7 @@ function listar_paciente_usuario(){
        "async": false ,
        "processing": true,
        "ajax":{
-           "url":"../controlador/paciente/listar_paciente_usuario.php",
+           "url":"../controlador/medico/paciente_listar.php",
            type:'POST'
        },
        "columns":[
@@ -111,7 +111,8 @@ function listar_paciente_usuario(){
            {"data":"ciudad"}, 
            {"data":"direccion"}, 
            {"data":"telefono"}, 
-           {"data":"receta"}, 
+           {"data":"nombre_medicamento"}, 
+           {"data":"indicaciones_medicamento"},
        ],
 
        "language": idioma_espanol,
@@ -128,10 +129,3 @@ function listar_paciente_usuario(){
 }
 
 
-
-
-function filterGlobal() {
-    $('#tabla_usuario').DataTable().search(
-        $('#global_filter').val(),
-    ).draw();
-}

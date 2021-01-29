@@ -1,5 +1,5 @@
-// función verificar paciente
-function VerificarPaciente(){
+// función verificar pacientes del MEDICO
+function VerificarMedico(){
 
     var usu = $("#txt_usu").val();
     var con = $("#txt_con").val();
@@ -8,7 +8,7 @@ function VerificarPaciente(){
         return Swal.fire("Mensaje de advertencia" , "Llene los campos vacios", "warning")
     }
     $.ajax({
-        url:'../controlador/medico/verificar_paciente.php',
+        url:'../controlador/administrador/verificar_administrador.php',
         type:'POST',
         data:{
             user:usu,
@@ -111,7 +111,8 @@ function listar_paciente(){
            {"data":"ciudad"}, 
            {"data":"direccion"}, 
            {"data":"telefono"}, 
-           {"data":"receta"}, 
+           {"data":"nombre_medicamento"}, 
+           {"data":"indicaciones_medicamento"},
            {"defaultContent":"<button style='font-size:13px;' type='button' class='editar btn btn-primary'><i class='fa fa-edit'></i></button><button style='font-size:13px;' type='button' class='eliminar btn btn-danger'><i class='fa fa-trash'></i></button>"}
        ],
 
@@ -147,7 +148,8 @@ $('#tabla_usuario').on('click','.editar', function(){
     $("#txtciu_editar").val(data.ciudad);
     $("#txtdir_editar").val(data.direccion);
     $("#txttelf_editar").val(data.telefono);
-    $("#txtreceta_receta").val(data.receta);
+    $("#txtmed_editar").val(data.nombre_medicamento);
+    $("#txtind_editar").val(data.indicaciones_medicamento);
 
 
 })
@@ -163,9 +165,9 @@ function AbrirModalRegistro(){
     $("#modal_registro").modal('show');
 }
 
-function listar_combo_rol(){
+function listar_combo_rol_paciente(){
     $.ajax({
-        "url":"../controlador/administrador/combo_rol_listar.php",
+        "url":"../controlador/medico/combo_rol_listar_paciente.php",
            type:'POST'
     }).done(function(resp){
         var data = JSON.parse(resp);
@@ -186,7 +188,7 @@ function listar_combo_rol(){
 }
 
 
-function Registrar_Paciente(){
+function Registrar_Usuario(){
     var usu = $("#txt_usu").val();
     var rol = $("#cbm_rol").val();
     var ape = $("#txt_ape").val();
@@ -199,7 +201,8 @@ function Registrar_Paciente(){
     var ciudad = $("#txt_ciu").val();
     var dir = $("#txt_dir").val();
     var telf = $("#txt_telf").val();
-    var receta = $("#txt_receta").val();
+    var med = $("#txt_med").val();
+    var ind = $("#txt_ind").val();
     
     if(usu.length==0 || rol.length==0 || ape.length==0|| contra.length==0 || contra2.length==0 
         || sexo.length==0 || cedula.length==0 || email.length==0 || estado.length==0 
@@ -226,7 +229,8 @@ function Registrar_Paciente(){
             ciudad:ciudad,
             direccion:dir,
             telefono:telf,
-            receta:receta
+            medicamento:med,
+            indicaciones:ind
 
         }
     }).done(function(resp){
@@ -252,8 +256,7 @@ function Registrar_Paciente(){
 
 }
 
-
-function Modificar_Paciente(){
+function Modificar_Usuario(){
     var idusuario = $("#txtidusuario").val();
     var rol = $("#cbm_rol_editar").val();
     var ape = $("#txtape_editar").val();
@@ -264,7 +267,8 @@ function Modificar_Paciente(){
     var ciudad = $("#txtciu_editar").val();
     var dir = $("#txtdir_editar").val();
     var telf = $("#txttelf_editar").val();
-    var receta = $("#txtreceta_editar").val();
+    var med = $("#txtmed_editar").val();
+    var ind = $("#txtind_editar").val();
     
     if(idusuario.length==0 || rol.length==0 || ape.length==0 || sexo.length==0 || cedula.length==0 
         || email.length==0 || estado.length==0   || ciudad.length==0 || dir.length==0 
@@ -287,7 +291,8 @@ function Modificar_Paciente(){
             ciudad:ciudad,
             direccion:dir,
             telefono:telf,
-            receta:receta
+            medicamento:med,
+            indicaciones:ind
 
         }
     }).done(function(resp){
@@ -306,6 +311,8 @@ function Modificar_Paciente(){
     })
 
 }
+
+
 
 function LimpiarRegistro(){
     $("#txt_usu").val("");
