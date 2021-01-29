@@ -22,8 +22,8 @@
                 <tr>
                   <th>#</th>
                   <th>Usuario</th>
-                  <th>Rol</th>
                   <th>Apellido</th>
+                  <th>Rol</th>
                   <th>Sexo</th>
                   <th>Cédula</th>
                   <th>Email</th>
@@ -31,7 +31,8 @@
                   <th>Ciudad</th>
                   <th>Dirección</th>
                   <th>Teléfono</th>
-                  <th>Receta</th>
+                  <th>Medicamento</th>
+                  <th>Indicaciones</th>
                   <th>Acci&oacute;n</th>
                 </tr>
               </thead>
@@ -39,8 +40,8 @@
                 <tr>
                   <th>#</th>
                   <th>Usuario</th>
-                  <th>Rol</th>
                   <th>Apellido</th>
+                  <th>Rol</th>
                   <th>Sexo</th>
                   <th>Cédula</th>
                   <th>Email</th>
@@ -48,7 +49,8 @@
                   <th>Ciudad</th>
                   <th>Dirección</th>
                   <th>Teléfono</th>
-                  <th>Receta</th>
+                  <th>Medicamento</th>
+                  <th>Indicaciones</th>
                   <th>Acci&oacute;n</th>
                 </tr>
               </tfoot>
@@ -126,8 +128,12 @@
               <input type="text" class="form-control" id="txt_telf" placeholder="Ingrese su número de telefono o celular"><br>
           </div>
           <div class="col-lg-12">
-              <label for="">Receta:</label>
-              <input type="text" class="form-control" id="txt_receta" placeholder="Ingrese la receta respectiva"><br>
+              <label for="">Medicamento:</label>
+              <input type="text" class="form-control" id="txt_med" placeholder="Ingrese la receta respectiva"><br>
+          </div>
+          <div class="col-lg-12">
+              <label for="">Indicaciones:</label>
+              <input type="text" class="form-control" id="txt_ind" placeholder="Ingrese la receta respectiva"><br>
           </div>
         </div>
         <div class="modal-footer">
@@ -196,8 +202,12 @@
               <input type="text" class="form-control" id="txttelf_editar" placeholder="Ingrese su número de telefono o celular"><br>
           </div>
           <div class="col-lg-12">
-              <label for="">Receta:</label>
-              <input type="text" class="form-control" id="txtreceta_editar" placeholder="Ingrese la receta respectiva"><br>
+              <label for="">Medicamento:</label>
+              <input type="text" class="form-control" id="txtmed_editar" placeholder="Ingrese la receta respectiva"><br>
+          </div>
+          <div class="col-lg-12">
+              <label for="">Indicaciones:</label>
+              <input type="text" class="form-control" id="txtind_editar" placeholder="Ingrese la receta respectiva"><br>
           </div>
         </div>
         <div class="modal-footer">

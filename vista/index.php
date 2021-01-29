@@ -93,8 +93,8 @@ if(!isset($_SESSION['S_IDUSUARIO'])){
           <img src="../Plantilla/dist/img/perfil usuario.jpg" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p><?php echo $_SESSION['S_IDUSUARIO']; ?></p>
           <p><?php echo $_SESSION['S_USER']; ?></p>
+          <p><?php echo $_SESSION['S_ROL']; ?></p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
@@ -122,7 +122,10 @@ if(!isset($_SESSION['S_IDUSUARIO'])){
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">USUARIOS DEL SISTEMA</li>
         <li class="active treeview">
-       
+        <?php 
+            if($_SESSION['S_ROL']=='1'){
+        
+        ?>
 
           <a onclick="cargar_contenido('contenido_principal','administrador/vista_administrador_listar.php')">
             <i class="fa fa-users"></i> <span>Administrador</span>
@@ -142,6 +145,41 @@ if(!isset($_SESSION['S_IDUSUARIO'])){
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
+
+          <?php
+            }
+          ?>
+          <?php 
+            if($_SESSION['S_ROL']=='2'){
+              
+        
+          ?>
+           <!-- /.contenido por roles -->
+            <a onclick="cargar_contenido('contenido_principal','medico/vista_medico_listar.php')">
+              <i class="fa fa-user-md"></i> <span>Medico</span>
+              <span class="pull-right-container">
+               <i class="fa fa-angle-left pull-right"></i>
+             </span>
+            </a>
+          <?php
+            }
+          ?>
+
+          <?php 
+            if($_SESSION['S_ROL']=='3'){
+              
+        
+          ?>
+           <!-- /.contenido por roles -->
+           <a onclick="cargar_contenido('contenido_principal','paciente/vista_paciente_listar.php')">
+            <i class="fa fa-wheelchair"></i> <span>Paciente</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <?php
+            }
+          ?>
         </li>
       </ul>
     </section>
