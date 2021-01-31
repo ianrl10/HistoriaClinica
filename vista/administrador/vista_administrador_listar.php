@@ -22,9 +22,9 @@
                 <tr>
                   <th>#</th>
                   <th>Usuario</th>
+                  <th>Rol</th>
                   <th>Nombre</th>
                   <th>Apellido</th>
-                  <th>Rol</th>
                   <th>Sexo</th>
                   <th>Cédula</th>
                   <th>Email</th>
