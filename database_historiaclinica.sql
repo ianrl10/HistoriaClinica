@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 31-01-2021 a las 17:00:10
+-- Tiempo de generación: 31-01-2021 a las 17:07:54
 -- Versión del servidor: 10.4.16-MariaDB
 -- Versión de PHP: 7.4.12
 
@@ -240,16 +240,10 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`id_usuario`, `nombre_usuario`, `id_rol`, `nombre`, `apellido_usuario`, `password_usuario`, `sexo_usuario`, `cedula_usuario`, `email`, `estado_civil`, `ciudad`, `direccion`, `telefono`, `nombre_medicamento`, `indicaciones_medicamento`) VALUES
-(1, 'idruiz1', 1, 'Ian', 'Ruiz Lpopez', '$2y$12$E8FGfF0FIg9jL1tqzcAUzO.YwCVOlPgEZlN8YFj2maddSci7jxMGy', 'M', 1727484022, 'ianruizlopez1@hotmail.es', 'S', 'Quito', 'Norte', 2878074, '', ''),
-(2, 'franc_', 2, 'Francisco', 'Arias', '$2y$10$DGUV8.Z1CY7jtbpuclMiuO/PYUW8siVc7uHI67pI1tynS3vUrLCk2', 'M', 1727263511, 'franciscogmail.com', 'C', 'Quito', 'Quito norte', 994325789, '', ''),
-(3, 'diana123', 2, 'Diana', 'Lozada', '$2y$10$DGUV8.Z1CY7jtbpuclMiuO/PYUW8siVc7uHI67pI1tynS3vUrLCk2', 'F', 170848970, 'dia_lo@gmail.com', 'C', 'Quito', 'Av. Amazonas', 946789456, 'aspirina', 'cada 2 horas'),
-(4, 'juan_rl', 3, 'Juan', 'Arias', '$2y$10$DGUV8.Z1CY7jtbpuclMiuO/PYUW8siVc7uHI67pI1tynS3vUrLCk2', 'M', 172743234, 'ianruizlopez1@hotmail.com', 'C', 'Quito', 'Av. Amazonas', 99678765, 'Asprina', 'tomar una pastilla todas las noches duante 4 dias'),
-(50, 'er', 1, 'er', 'er', '$2y$10$n2kxorDUSI0vA33S1EIRbeXREBttcYJNRW4RNL30F6dH28Xa.CeaC', 'M', 1727484022, 'ianruizlopez1@hotmail.es', 'C', 'quito', 'quito', 2878457, '', ''),
-(51, 'ef', 1, 'ef', 'ef', '$2y$10$jnmcGkhUJWQ1Z6npblCg7OjmqAggWZ6/kp52.hoDBlVgEGcE3yEni', 'M', 1727484022, 'ianruizlopez1@gmail.com', 'C', 'quito', 'quito', 2878457, '', ''),
-(52, 'rt', 1, 'rt', 'rt', '$2y$10$XPfN0TyPfteeglvccZtMA.kTCX6hAaT/n3zmAeuVABx6R7EciFw7i', 'M', 1727484022, 'idruiz1@utpl.edu.ec', 'C', 'quito', 'quito', 2878457, '', ''),
-(53, 'yu', 1, 'wer', 'er', '$2y$10$BPwkRAqzAm0n9p8OY9kDzu/F3D60xc1pcTwzTZu9o3X3HSBnZjEGy', 'M', 1727484022, 'yu', 'C', 'quito', 'quito', 2878457, '', ''),
-(54, 'rte', 1, 'er', 'er', '$2y$10$BKsF0W3POnPK4wX7YRxN1eoTbhZtWFnmgCczEd2emevt213NniA4C', 'M', 1727484022, 'ianruizlopez1@gmail.com', 'C', 'quito', 'quito', 2878457, '', ''),
-(55, 'ee', 1, 'ee', 'ee', '$2y$10$CssccZ.qIhdk5Rj63nMtdOlMPgk3Sy4BJwnUqjDnIHyiVehU8bjzS', 'M', 1727484022, 'ianruizlopez1@gmail.com', 'C', 'quito', 'quito', 2878457, '', '');
+(1, 'idruiz1', 1, 'Ian', 'Ruiz Lpopez', '$2y$10$C4cCGFD7/68mCqAkB6Y7zuE8fPl5BmfgXkxHD8gPM9KhsjZpvbKgm', 'M', 1727484022, 'ianruizlopez1@hotmail.es', 'S', 'Quito', 'Norte', 2878074, '', ''),
+(2, 'franc_', 2, 'Francisco', 'Arias', '$2y$10$C4cCGFD7/68mCqAkB6Y7zuE8fPl5BmfgXkxHD8gPM9KhsjZpvbKgm', 'M', 1727263511, 'franciscogmail.com', 'C', 'Quito', 'Quito norte', 994325789, '', ''),
+(3, 'diana123', 2, 'Diana', 'Lozada', '$2y$10$C4cCGFD7/68mCqAkB6Y7zuE8fPl5BmfgXkxHD8gPM9KhsjZpvbKgm', 'F', 170848970, 'dia_lo@gmail.com', 'C', 'Quito', 'Av. Amazonas', 946789456, 'aspirina', 'cada 2 horas'),
+(4, 'juan_rl', 3, 'Juan', 'Arias', '$2y$10$C4cCGFD7/68mCqAkB6Y7zuE8fPl5BmfgXkxHD8gPM9KhsjZpvbKgm', 'M', 172743234, 'ianruizlopez1@hotmail.com', 'C', 'Quito', 'Av. Amazonas', 99678765, 'Asprina', 'tomar una pastilla todas las noches duante 4 dias');
 
 --
 -- Índices para tablas volcadas
@@ -282,7 +276,7 @@ ALTER TABLE `rol`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 
 --
 -- Restricciones para tablas volcadas
