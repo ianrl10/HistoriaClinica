@@ -22,8 +22,9 @@
                 <tr>
                   <th>#</th>
                   <th>Usuario</th>
-                  <th>Rol</th>
+                  <th>Nombre</th>
                   <th>Apellido</th>
+                  <th>Rol</th>
                   <th>Sexo</th>
                   <th>Cédula</th>
                   <th>Email</th>
@@ -31,7 +32,8 @@
                   <th>Ciudad</th>
                   <th>Dirección</th>
                   <th>Teléfono</th>
-                  <th>Receta</th>
+                  <th>Medicamento</th>
+                  <th>Indicaciones</th>
                   <th>Acci&oacute;n</th>
                 </tr>
               </thead>
@@ -39,8 +41,9 @@
                 <tr>
                   <th>#</th>
                   <th>Usuario</th>
-                  <th>Rol</th>
+                  <th>Nombre</th>
                   <th>Apellido</th>
+                  <th>Rol</th>
                   <th>Sexo</th>
                   <th>Cédula</th>
                   <th>Email</th>
@@ -48,7 +51,8 @@
                   <th>Ciudad</th>
                   <th>Dirección</th>
                   <th>Teléfono</th>
-                  <th>Receta</th>
+                  <th>Medicamento</th>
+                  <th>Indicaciones</th>
                   <th>Acci&oacute;n</th>
                 </tr>
               </tfoot>
@@ -77,6 +81,10 @@
               <select class="js-example-basic-single" name="state" id="cbm_rol" style="width:100%;">
 
               </select><br><br>
+          </div>
+          <div class="col-lg-12">
+              <label for="">Nombre:</label>
+              <input type="text" class="form-control" id="txt_nom" placeholder="Ingrese nombre"><br>
           </div>
           <div class="col-lg-12">
               <label for="">Apellido:</label>
@@ -126,8 +134,12 @@
               <input type="text" class="form-control" id="txt_telf" placeholder="Ingrese su número de telefono o celular"><br>
           </div>
           <div class="col-lg-12">
-              <label for="">Receta:</label>
-              <input type="text" class="form-control" id="txt_receta" placeholder="Ingrese la receta respectiva"><br>
+              <label for="">Medicamento:</label>
+              <input type="text" class="form-control" id="txt_med" placeholder="Ingrese el medicamento"><br>
+          </div>
+          <div class="col-lg-12">
+              <label for="">Indicaciones:</label>
+              <input type="text" class="form-control" id="txt_ind" placeholder="Ingrese las indicaciones respectivas"><br>
           </div>
         </div>
         <div class="modal-footer">
@@ -155,6 +167,10 @@
               <label for="">Rol:</label>
               <select class="js-example-basic-single" name="state" id="cbm_rol_editar" style="width:100%;">
               </select><br><br>
+          </div>
+          <div class="col-lg-12">
+              <label for="">Nombre:</label>
+              <input type="text" class="form-control" id="txtnom_editar" placeholder="Ingrese nombre"><br>
           </div>
           <div class="col-lg-12">
               <label for="">Apellido:</label>
@@ -196,8 +212,12 @@
               <input type="text" class="form-control" id="txttelf_editar" placeholder="Ingrese su número de telefono o celular"><br>
           </div>
           <div class="col-lg-12">
-              <label for="">Receta:</label>
-              <input type="text" class="form-control" id="txtreceta_editar" placeholder="Ingrese la receta respectiva"><br>
+              <label for="">Medicamento:</label>
+              <input type="text" class="form-control" id="txtmed_editar" placeholder="Ingrese medicamento"><br>
+          </div>
+          <div class="col-lg-12">
+              <label for="">Indicaciones:</label>
+              <input type="text" class="form-control" id="txtind_editar" placeholder="Ingrese las indicaciones respectivas"><br>
           </div>
         </div>
         <div class="modal-footer">

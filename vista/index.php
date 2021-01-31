@@ -13,7 +13,7 @@ if(!isset($_SESSION['S_IDUSUARIO'])){
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Historias Clínicas</title>
+  <title>Control Médico de Pacientes</title>
 <!-- apartado enfocado al apartado resposive de la página -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -65,9 +65,9 @@ if(!isset($_SESSION['S_IDUSUARIO'])){
     <!-- Logo -->
     <a href="index.php" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>H</b>C</span>
+      <span class="logo-mini"><b>C</b>M</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Historia</b>Clinica</span>
+      <span class="logo-lg"><b>Control</b>Médico</span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
@@ -93,7 +93,6 @@ if(!isset($_SESSION['S_IDUSUARIO'])){
           <img src="../Plantilla/dist/img/perfil usuario.jpg" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p><?php echo $_SESSION['S_IDUSUARIO']; ?></p>
           <p><?php echo $_SESSION['S_USER']; ?></p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
@@ -122,7 +121,10 @@ if(!isset($_SESSION['S_IDUSUARIO'])){
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">USUARIOS DEL SISTEMA</li>
         <li class="active treeview">
-       
+        <?php 
+            if($_SESSION['S_ROL']=='1'){
+        
+        ?>
 
           <a onclick="cargar_contenido('contenido_principal','administrador/vista_administrador_listar.php')">
             <i class="fa fa-users"></i> <span>Administrador</span>
@@ -142,6 +144,41 @@ if(!isset($_SESSION['S_IDUSUARIO'])){
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
+
+          <?php
+            }
+          ?>
+          <?php 
+            if($_SESSION['S_ROL']=='2'){
+              
+        
+          ?>
+           <!-- /.contenido por roles -->
+            <a onclick="cargar_contenido('contenido_principal','medico/vista_medico_listar.php')">
+              <i class="fa fa-user-md"></i> <span>Medico</span>
+              <span class="pull-right-container">
+               <i class="fa fa-angle-left pull-right"></i>
+             </span>
+            </a>
+          <?php
+            }
+          ?>
+
+          <?php 
+            if($_SESSION['S_ROL']=='3'){
+              
+        
+          ?>
+           <!-- /.contenido por roles -->
+           <a onclick="cargar_contenido('contenido_principal','paciente/vista_paciente_listar.php')">
+            <i class="fa fa-wheelchair"></i> <span>Paciente</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <?php
+            }
+          ?>
         </li>
       </ul>
     </section>

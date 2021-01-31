@@ -23,6 +23,7 @@
                   <th>#</th>
                   <th>Usuario</th>
                   <th>Rol</th>
+                  <th>Nombre</th>
                   <th>Apellido</th>
                   <th>Sexo</th>
                   <th>Cédula</th>
@@ -31,7 +32,8 @@
                   <th>Ciudad</th>
                   <th>Dirección</th>
                   <th>Teléfono</th>
-                  <th>Receta</th>
+                  <th>Medicamento</th>
+                  <th>Indicaciones</th>
                   <th>Acci&oacute;n</th>
                 </tr>
               </thead>
@@ -40,6 +42,7 @@
                   <th>#</th>
                   <th>Usuario</th>
                   <th>Rol</th>
+                  <th>Nombre</th>
                   <th>Apellido</th>
                   <th>Sexo</th>
                   <th>Cédula</th>
@@ -48,7 +51,8 @@
                   <th>Ciudad</th>
                   <th>Dirección</th>
                   <th>Teléfono</th>
-                  <th>Receta</th>
+                  <th>Medicamento</th>
+                  <th>Indicaciones</th>
                   <th>Acci&oacute;n</th>
                 </tr>
               </tfoot>
@@ -69,14 +73,18 @@
         </div>
         <div class="modal-body">
           <div class="col-lg-12">
-              <label for="">Paciente:</label>
+              <label for="">Usuario del paciente:</label>
               <input type="text" class="form-control" id="txt_usu" placeholder="Ingrese usuario"><br>
           </div>
           <div class="col-lg-12">
               <label for="">Rol:</label>
-              <select class="js-example-basic-single" name="state" id="rol" style="width:100%;">
+              <select class="js-example-basic-single" name="state" id="cbm_rol" style="width:100%;">
 
               </select><br><br>
+          </div>
+          <div class="col-lg-12">
+              <label for="">Nombre:</label>
+              <input type="text" class="form-control" id="txt_nom" placeholder="Ingrese nombre"><br>
           </div>
           <div class="col-lg-12">
               <label for="">Apellido:</label>
@@ -123,15 +131,19 @@
           </div>
           <div class="col-lg-12">
               <label for="">Telefono:</label>
-              <input type="text" class="form-control" id="txt_telf" placeholder="Ingrese su número de telefono o celular"><br>
+              <input type="text" class="form-control" id="txt_telf" placeholder="Ingrese su número de telefono"><br>
           </div>
           <div class="col-lg-12">
-              <label for="">Receta:</label>
-              <input type="text" class="form-control" id="txt_receta" placeholder="Ingrese la receta respectiva"><br>
+              <label for="">Medicamento:</label>
+              <input type="text" class="form-control" id="txt_med" placeholder="Ingrese medicamento"><br>
+          </div>
+          <div class="col-lg-12">
+              <label for="">Indicaciones:</label>
+              <input type="text" class="form-control" id="txt_ind" placeholder="Ingrese las indicaciones respectivas"><br>
           </div>
         </div>
         <div class="modal-footer">
-          <button class="btn btn-primary" onclick="Registrar_Paciente()">Registar</button>
+          <button class="btn btn-primary" onclick="Registrar_Usuario()">Registar</button>
           <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
         </div>
       </div>
@@ -148,13 +160,17 @@
         <div class="modal-body">
           <div class="col-lg-12">
             <input type="text" id="txtidusuario" hidden>
-              <label for="">Paciente:</label>
+              <label for="">Usuario del paciente:</label>
               <input type="text" class="form-control" id="txtusu_editar" placeholder="Ingrese paciente" disabled><br>
           </div>
           <div class="col-lg-12">
               <label for="">Rol:</label>
               <select class="js-example-basic-single" name="state" id="cbm_rol_editar" style="width:100%;">
               </select><br><br>
+          </div>
+          <div class="col-lg-12">
+              <label for="">Nombre:</label>
+              <input type="text" class="form-control" id="txtnom_editar" placeholder="Ingrese nombre"><br>
           </div>
           <div class="col-lg-12">
               <label for="">Apellido:</label>
@@ -193,15 +209,19 @@
           </div>
           <div class="col-lg-12">
               <label for="">Telefono:</label>
-              <input type="text" class="form-control" id="txttelf_editar" placeholder="Ingrese su número de telefono o celular"><br>
+              <input type="text" class="form-control" id="txttelf_editar" placeholder="Ingrese su número de telefono"><br>
           </div>
           <div class="col-lg-12">
-              <label for="">Receta:</label>
-              <input type="text" class="form-control" id="txtreceta_editar" placeholder="Ingrese la receta respectiva"><br>
+              <label for="">Medicamento:</label>
+              <input type="text" class="form-control" id="txtmed_editar" placeholder="Ingrese medicamento"><br>
+          </div>
+          <div class="col-lg-12">
+              <label for="">Indicaciones:</label>
+              <input type="text" class="form-control" id="txtind_editar" placeholder="Ingrese las indicaciones respectivas"><br>
           </div>
         </div>
         <div class="modal-footer">
-          <button class="btn btn-primary" onclick="Modificar_Paciente()">Editar</button>
+          <button class="btn btn-primary" onclick="Modificar_Usuario()">Editar</button>
           <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
         </div>
       </div>
@@ -212,7 +232,7 @@
 $(document).ready(function() {
     listar_paciente();
     $('.js-example-basic-single').select2();
-    listar_combo_rol();
+    listar_combo_rol_paciente();
     $("#modal_registro").on('shown.bs.modal', function(){
         $("#txt_usu").focus();
 
