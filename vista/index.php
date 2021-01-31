@@ -94,7 +94,7 @@ if(!isset($_SESSION['S_IDUSUARIO'])){
         </div>
         <div class="pull-left info">
           <p><?php echo $_SESSION['S_USER']; ?></p>
-          <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+          <a href="#"><i class="fa fa-circle text-success"></i> En línea </a>
         </div>
       </div>
 
