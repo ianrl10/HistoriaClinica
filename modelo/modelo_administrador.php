@@ -54,10 +54,10 @@
 
         }
 
-        function Modificar_Datos_Usuario($idusuario,$rol,$apellido,$sexo,$cedula,$email,$estado,$ciudad,$direccion,
-        $telefono,$receta){
-            $sql = "call SP_MODIFICAR_DATOS_USUARIO('$idusuario','$rol','$apellido','$sexo','$cedula','$email'
-            ,'$estado','$ciudad','$direccion','$telefono','$receta')";
+        function Modificar_Datos_Usuario($idusuario,$rol,$nombre,$apellido,$sexo,$cedula,$email,$estado,$ciudad,$direccion,
+        $telefono,$medicamento,$indicaciones){
+            $sql = "call SP_MODIFICAR_DATOS_USUARIO('$idusuario','$rol','$nombre','$apellido','$sexo','$cedula','$email'
+            ,'$estado','$ciudad','$direccion','$telefono','$medicamento','$indicaciones')";
             if ($consulta = $this->conexion->conexion->query($sql)){
                 return 1;
           
@@ -70,10 +70,22 @@
 
 
 
-        function Registrar_Usuario($usuario,$rol,$apellido,$contra,$sexo,$cedula,$email,$estado,$ciudad,$direccion,
-        $telefono,$receta){
-            $sql = "call SP_REGISTRAR_USUARIO('$usuario','$rol','$apellido','$contra','$sexo','$cedula','$email'
-            ,'$estado','$ciudad','$direccion','$telefono','$receta')";
+        function Registrar_Usuario($usuario,$rol,$nombre,$apellido,$contra,$sexo,$cedula,$email,$estado,$ciudad,$direccion,
+        $telefono,$medicamento,$indicaciones){
+            $sql = "call SP_REGISTRAR_USUARIO('$usuario','$rol','$nombre','$apellido','$contra','$sexo','$cedula','$email'
+            ,'$estado','$ciudad','$direccion','$telefono','$medicamento','$indicaciones')";
+            if ($consulta = $this->conexion->conexion->query($sql)){
+                if ($row = mysqli_fetch_array($consulta)) {
+                        return $id= trim($row[0]);
+                }
+                $this->conexion->cerrar();   
+             
+            }
+
+        }
+
+        function Restablecer_contra($email,$contra){
+            $sql = "call SP_RESTABLECER_CONTRA('$email','$contra')";
             if ($consulta = $this->conexion->conexion->query($sql)){
                 if ($row = mysqli_fetch_array($consulta)) {
                         return $id= trim($row[0]);
