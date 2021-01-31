@@ -27,7 +27,7 @@ function VerificarAdministrador(){
                 type:'POST',
                 data:{
                     idusuario:data [0][0],
-                    user:data [0][3],
+                    user:data [0][1],
                     rol: data [0][2]
                 }
             }).done(function(resp){
@@ -35,7 +35,7 @@ function VerificarAdministrador(){
                 Swal.fire({
                 title: 'Bienvenido al sistema',
                 html: 'seras redireccionado en <b></b> unos segundos.',
-                timer: 2000,
+                timer: 1000,
                 timerProgressBar: true,
                 didOpen: () => {
                     Swal.showLoading()
@@ -85,6 +85,7 @@ function listar_usuario(){
            {"data":"posicion"},
            {"data":"nombre_usuario"},
            {"data":"nombre_rol"},
+           {"data":"nombre"},
            {"data":"apellido_usuario"},
            {"data":"sexo_usuario",
                 render: function (data, type, row ) {
@@ -111,7 +112,8 @@ function listar_usuario(){
            {"data":"ciudad"}, 
            {"data":"direccion"}, 
            {"data":"telefono"}, 
-           {"data":"receta"}, 
+           {"data":"nombre_medicamento"}, 
+           {"data":"indicaciones_medicamento"}, 
            {"defaultContent":"<button style='font-size:13px;' type='button' class='editar btn btn-primary'><i class='fa fa-edit'></i></button><button style='font-size:13px;' type='button' class='eliminar btn btn-danger'><i class='fa fa-trash'></i></button>"}
        ],
 
@@ -139,6 +141,7 @@ $('#tabla_usuario').on('click','.editar', function(){
     $("#txtidusuario").val(data.id_usuario);
     $("#txtusu_editar").val(data.nombre_usuario);
     $("#cbm_rol_editar").val(data.id_rol).trigger("change");
+    $("#txtnom_editar").val(data.nombre);
     $("#txtape_editar").val(data.apellido_usuario);
     $("#cbm_sexo_editar").val(data.sexo_usuario).trigger("change");
     $("#txtced_editar").val(data.cedula_usuario);
@@ -147,7 +150,8 @@ $('#tabla_usuario').on('click','.editar', function(){
     $("#txtciu_editar").val(data.ciudad);
     $("#txtdir_editar").val(data.direccion);
     $("#txttelf_editar").val(data.telefono);
-    $("#txtreceta_receta").val(data.receta);
+    $("#txtmed_editar").val(data.nombre_medicamento);
+    $("#txtind_editar").val(data.indicaciones_medicamento);
 
 
 })
@@ -189,6 +193,7 @@ function listar_combo_rol(){
 function Registrar_Usuario(){
     var usu = $("#txt_usu").val();
     var rol = $("#cbm_rol").val();
+    var nom = $("#txt_nom").val();
     var ape = $("#txt_ape").val();
     var contra = $("#txt_con1").val();
     var contra2 = $("#txt_con2").val();
@@ -199,9 +204,10 @@ function Registrar_Usuario(){
     var ciudad = $("#txt_ciu").val();
     var dir = $("#txt_dir").val();
     var telf = $("#txt_telf").val();
-    var receta = $("#txt_receta").val();
+    var med = $("#txt_med").val();
+    var ind = $("#txt_ind").val();
     
-    if(usu.length==0 || rol.length==0 || ape.length==0|| contra.length==0 || contra2.length==0 
+    if(usu.length==0 || rol.length==0 || nom.length==0|| ape.length==0|| contra.length==0 || contra2.length==0 
         || sexo.length==0 || cedula.length==0 || email.length==0 || estado.length==0 
         || ciudad.length==0 || dir.length==0 || telf.length==0){
         return Swal.fire("Mensaje de advertencia" , "Llene los campos vacios", "warning");
@@ -217,6 +223,7 @@ function Registrar_Usuario(){
         data:{
             usuario:usu,
             rol:rol,
+            nombre:nom,
             apellido:ape,
             contrasena:contra,
             sexo:sexo,
@@ -226,7 +233,8 @@ function Registrar_Usuario(){
             ciudad:ciudad,
             direccion:dir,
             telefono:telf,
-            receta:receta
+            medicamento:med,
+            indicaciones:ind
 
         }
     }).done(function(resp){
@@ -256,6 +264,7 @@ function Registrar_Usuario(){
 function Modificar_Usuario(){
     var idusuario = $("#txtidusuario").val();
     var rol = $("#cbm_rol_editar").val();
+    var nom = $("#txtnom_editar").val();
     var ape = $("#txtape_editar").val();
     var sexo = $("#cbm_sexo_editar").val();
     var cedula = $("#txtced_editar").val();
@@ -264,11 +273,12 @@ function Modificar_Usuario(){
     var ciudad = $("#txtciu_editar").val();
     var dir = $("#txtdir_editar").val();
     var telf = $("#txttelf_editar").val();
-    var receta = $("#txtreceta_editar").val();
+    var med = $("#txtmed_editar").val();
+    var ind = $("#txtind_editar").val();
     
-    if(idusuario.length==0 || rol.length==0 || ape.length==0 || sexo.length==0 || cedula.length==0 
+    if(idusuario.length==0 || rol.length==0 || nom.length==0 || ape.length==0 || sexo.length==0 || cedula.length==0 
         || email.length==0 || estado.length==0   || ciudad.length==0 || dir.length==0 
-        || telf.length==0){
+        || telf.length==0 ){
         return Swal.fire("Mensaje de advertencia" , "Llene los campos vacios", "warning");
     }
 
@@ -279,6 +289,7 @@ function Modificar_Usuario(){
         data:{
             idusuario:idusuario,
             rol:rol,
+            nombre:nom,
             apellido:ape,
             sexo:sexo,
             cedula:cedula,
@@ -287,7 +298,8 @@ function Modificar_Usuario(){
             ciudad:ciudad,
             direccion:dir,
             telefono:telf,
-            receta:receta
+            medicamento:med,
+            indicaciones:ind
 
         }
     }).done(function(resp){
@@ -312,5 +324,46 @@ function LimpiarRegistro(){
     $("#txt_con1").val("");
     $("#txt_con2").val("");
 
+
+}
+
+function AbrirModalRestablecer(){
+    $("#modal_restablecer_contra").modal({backdrop:'static',keyboard:false})
+    $("#modal_restablecer_contra").modal('show');
+    $("#modal_restablecer_contra").on('shown.bs.modal',function(){ 
+        $("#txt_email").focus();
+    })
+}
+
+function Restablecer_Contra(){
+    var email=$("#txt_email").val();
+    if(email.length==0){
+        return Swal.fire("Mensaje de advertencia","Llene los campos vacios","warning");
+    }
+    var carecteres="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+    var contrasena = "";
+    for(var i=0;i<6;i++){
+        contrasena+=carecteres.charAt(Math.floor(Math.random()*carecteres.length));
+    }
+    $.ajax({
+        url:'../controlador/administrador/restablecer_contra.php',
+        type:'POST',
+        data:{
+            email:email,
+            contrasena:contrasena
+            
+            
+        }
+    }).done(function(resp){
+        if(resp>0){
+            if(resp==1){
+                Swal.fire("Mensaje De Confirmacion","Su nuevo password fue enviado al correo: "+email+"","success");
+            }else{
+                Swal.fire("Mensaje De Advertencia","El correo ingresado es incorrecto: ","warning");
+            }  
+        }else{
+            Swal.fire("Mensaje De Error","El correo ingresado es incorrecto","error");
+        }
+    })
 
 }
